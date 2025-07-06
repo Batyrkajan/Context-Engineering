@@ -1,53 +1,76 @@
 🚀 Project Awareness & Context
 
-Always read PLANNING.md at the start of a session to align with the site's architecture, aesthetic, and goals.
-Check TASK.md before starting a new task; add missing tasks with a brief description and today’s date.
+Always read PLANNING.md at the start of a session to align with the project's architecture, goals, and constraints.
+Check TASK.md before starting a new task; add missing tasks with a brief description and today’s date if needed.
 Follow consistent naming conventions, file structure, and architecture patterns defined in PLANNING.md.
-Use node version 20.x with pnpm for consistent builds and dependency management.
+Use the specified environment and tools for the project (e.g., node, pnpm, venv, Docker) for consistency and reproducibility.
 🧱 Code Structure & Modularity
 
-No file should exceed 300 lines of code; split into modular components or hooks if approaching this limit.
-Organize by feature and responsibility:
-components/ → reusable UI and layout elements
-app/ → page routes using App Router
-lib/ → utilities, analytics, and API integrations
-styles/ → global and modular styles
-Prefer relative imports within the project for clarity.
-Document new reusable components with README.md inside the component folder if needed.
+Keep files under 300–500 lines. Split into clear, reusable modules, components, or services if approaching this limit.
+Organize code by feature and responsibility, not by type alone:
+components/ → UI and reusable elements
+lib/ → utilities and helpers
+services/ → external integrations, business logic
+api/ → routes or handlers
+Prefer relative imports within packages for clarity and maintainability.
+Document reusable modules with inline comments and, if complex, a README.md in their folder.
 🧪 Testing & Reliability
 
-Add unit or integration tests for significant utilities or reusable components.
-Use Playwright or Cypress for end-to-end testing when testing interactive elements or animations.
-Store tests in a __tests__/ folder alongside the component or in /tests mirroring the structure.
-For each feature:
-1 test for standard usage
-1 test for edge cases
-1 test for failure/error handling
-✅ Task Completion
+Write tests for all significant logic (functions, components, endpoints).
+Use unit tests for core logic and integration/E2E tests for workflows or UI flows.
+Store tests in a __tests__/ folder next to modules or in /tests, mirroring the project structure.
+Cover:
+At least one test for expected behavior
+At least one edge case
+At least one failure case
+✅ Task Management
 
-Mark finished tasks in TODO.md immediately after completion.
-Log new subtasks discovered during work under “Discovered During Work” in TODO.md.
+Mark completed tasks in TODO.md upon completion.
+Add new subtasks discovered during development to the “Discovered During Work” section in TODO.md.
 🎨 Style & Conventions
 
-Use TypeScript for all files (.tsx, .ts).
-Format code with Prettier and enforce linting with ESLint.
-Use Tailwind CSS for styling with dark mode as default.
-Animations: Use Framer Motion consistently for transitions and interactions.
-3D: Use Three.js with React Three Fiber in a modular, easily removable structure if experiments change.
-Handwritten font highlights: Use consistent class naming (e.g., font-handwritten) and limit to headings for aesthetic consistency.
+Use the primary language and framework(s) specified for the project.
+Follow consistent code formatting (Prettier, black, etc.) and linting (ESLint, pylint).
+Apply typing (TypeScript for JS/TS projects, type hints for Python).
+Write clear docstrings/comments using a consistent format:
+def example(param: str) -> int:
+    """
+    Brief description.
+
+    Args:
+        param (str): Description.
+
+    Returns:
+        int: Description.
+    """
+Use environment variable management (dotenv, load_env()) for secrets/configs.
 📚 Documentation & Explainability
 
-Keep README.md updated with features, library choices, and setup instructions.
-Add comments explaining non-obvious logic (especially shaders, Three.js interactions, and Framer Motion animations).
-Use inline // Reason: comments to explain “why” design/logic choices were made.
+Keep README.md updated with:
+Project description and purpose
+Setup instructions
+Usage examples
+Library choices and reasoning
+Comment non-obvious logic and key design decisions.
+Use inline # Reason: comments to clarify why something is done, not just what.
 🌐 Git & Deployment
 
-Commit to GitHub after each completed feature or significant milestone with clear, descriptive commit messages.
-Use feature branches named clearly (feature/hero-3d, feature/framer-animations) for organization.
-Deploy to Vercel automatically with each main push.
-🤖 AI Agent Rules
+Use clear, descriptive commit messages for all commits.
+Commit after implementing new features, fixing bugs, or reaching significant milestones.
+Use feature branches (feature/xyz) to isolate work.
+Keep deployment pipelines (Vercel, Docker, CI/CD) clean and documented in DEPLOYMENT.md if needed.
+🤖 AI Code Agent Behavior Rules
 
-Never assume missing context; ask for clarifications if unsure.
-Use verified and documented Next.js, Tailwind, Framer Motion, and Three.js patterns only.
-Confirm file paths and module names before referencing.
-Do not delete or overwrite existing code unless explicitly part of a TASK.md entry or user instruction.
+Never assume missing context; ask clarifying questions if needed.
+Never hallucinate functions or libraries; only use verified, documented packages.
+Verify file paths, names, and structures before referencing them in code or tests.
+Do not delete or overwrite existing code unless explicitly instructed or if part of a documented task.
+🪄 Optional Advanced Practices
+
+Add CONTRIBUTING.md for consistent workflows when collaborating or using AI agents.
+Add docs/ folder for:
+Library usage notes
+Architectural decisions
+Developer environment setup
+Use semantic versioning for tagging releases.
+Create architecture diagrams or ARCHITECTURE.md for complex systems.
